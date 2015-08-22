@@ -1,0 +1,28 @@
+Hi,
+this is a quicknote file for git-commands.
+
+#Setting up ssh key connection
+run ssh script
+add public ssh key by copy n paste public ssh key to github.com account
+
+#seting up remote connection
+git remote add <name> <url>
+e.g.(ssh)   git remote add github git@github.com:heclive/scripts.git 
+e.g.(https) git remote add github https://github.com/heclive/scripts.git
+
+#changing remote connection name
+git remote <name> set-url <url>
+e.g. git remote github set-url https://github.com/heclive/scripts.git
+
+#updating your brach
+git pull <remotename> <branchname>
+e.g. git pull origin server
+
+#Doing a commit
+1.) git add <file>  OR   git rm <file>   OR    git rm --cached <file>
+   (adding a file)   (removing a file)      (removing a file ONLY from the index)
+
+2.) git commit -am "<message>"
+
+3.) git push <remotename><ACTIVE branchname>
+eg.: git push github server
