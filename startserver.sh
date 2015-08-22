@@ -1,12 +1,6 @@
 #!/bin/sh
 
 clear
-WHITE="\033[1;29m"
-YELLOW="\033[1;33m"
-RED="\033[0;31m"
-GREEN="\033[1;32m"
-ENDCOLOR="\033[0m"
-
 				# PROGRAMM START
 			# Quelliste fuer Packetmanager 
 
@@ -17,7 +11,7 @@ REP3="" #deb http://security.kali.org/kali-security kali/updates main contrib no
 REP4="" #deb-src http://http.kali.org/kali kali main non-free contrib"
 REP5="" #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free"
 
-echo -e $WHITE"Are you allready logged in ? (hiyamobile@digitalocean.com [46.101.188.218]) [y/n]"$ENDCOLOR
+echo "Are you allready logged in ? (hiyamobile@digitalocean.com [46.101.188.218]) [y/n]"
 read -s -n 1 log
 
 #=================================================================================================LOGGED IN?
@@ -35,12 +29,12 @@ read -s -n 1 log
 	else echo ""
 	fi
 #------------------------------------------------------------------------------------------------> ELSE
-echo -e $WHITE"Checking Server status ...."$ENDCOLOR
+echo "Checking Server status ...."
 ps aux | grep odoo
 
 
 #=================================================================================================> START SERVER?
-echo -e $WHITE"Start Server? [y/n]"$ENDCOLOR
+echo "Start Server? [y/n]"
 read  -s -n 1 start
 #Schleife
 	until [ $start = "n" -o $start = "y" ]
@@ -52,7 +46,7 @@ read  -s -n 1 start
 	if [ $start = "y" ]
 	then	sudo service odoo-server start
 		echo ""
-		echo -e $GREEN"Odoo Server Started"$ENDCOLOR			
+		echo "Odoo Server Started"		
 	else echo ""
 	fi			
 
