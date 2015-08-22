@@ -1,6 +1,11 @@
 Hi,
 this is a quicknote file for git-commands.
 
+#GIT REFERENCE:
+http://gitref.org/index.html
+
+
+
 #Setting up ssh key connection
 run ssh script
 add public ssh key by copy n paste public ssh key to github.com account
