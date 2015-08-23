@@ -12,7 +12,7 @@ REP4="" #deb-src http://http.kali.org/kali kali main non-free contrib"
 REP5="" #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free"
 
 echo ""
-echo "Are you allready logged in to [46.101.188.218]? [y/n]"
+echo "Loggin to [46.101.188.218]? [y/n]"
 read -s -n 1 log
 
 #=================================================================================================LOGGED IN?
@@ -35,19 +35,25 @@ ps aux | grep odoo
 
 
 #=================================================================================================> START SERVER?
-echo "Start Server? [y/n]"
+echo "Please Choose:"
+echo "1.) Start Server"
+echo "2.) Stop Server"
 read  -s -n 1 start
 #Schleife
-	until [ $start = "n" -o $start = "y" ]
+	until [ $start = "1" -o $start = "2" ]
 	do
 		echo ""			
-		read -s -n 1 -p "please enter 'y' for YES or 'n' for NO" start
+		read -s -n 1 -p "please select '1' or '2'" start
 	done
 #--------------------------------------------------------------------------------
-	if [ $start = "y" ]
+	if [ $start = "1" ]
 	then	sudo service odoo-server start
 		echo ""
 		echo "Odoo Server Started"		
-	else echo ""
+	else 
+		sudo service odoo-server stop
+		echo ""
+		echo "Odoo Server Stoped"
+echo ""
 	fi			
 
