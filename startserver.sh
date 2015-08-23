@@ -11,7 +11,8 @@ REP3="" #deb http://security.kali.org/kali-security kali/updates main contrib no
 REP4="" #deb-src http://http.kali.org/kali kali main non-free contrib"
 REP5="" #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free"
 
-echo "Are you allready logged in ? (hiyamobile@digitalocean.com [46.101.188.218]) [y/n]"
+echo ""
+echo "Are you allready logged in to [46.101.188.218]? [y/n]"
 read -s -n 1 log
 
 #=================================================================================================LOGGED IN?
