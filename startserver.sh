@@ -12,7 +12,7 @@ REP4="" #deb-src http://http.kali.org/kali kali main non-free contrib"
 REP5="" #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free"
 
 echo ""
-echo "Loggin to [46.101.188.218]? [y/n]"
+echo "Allready Logged in to [46.101.188.218]? [y/n]"
 read -s -n 1 log
 
 #=================================================================================================LOGGED IN?
