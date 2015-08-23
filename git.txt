@@ -3,7 +3,8 @@ this is a quicknote file for git-commands.
 
 #GIT REFERENCE:
 http://gitref.org/index.html
-
+#https remote access threat
+http://stackoverflow.com/questions/6565357/git-push-requires-username-and-password
 
 
 #Setting up ssh key connection
