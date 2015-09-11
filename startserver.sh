@@ -4,7 +4,7 @@ clear
 				# PROGRAMM START
 			# Quelliste fuer Packetmanager 
 
-IP="46.101.188.218"
+IP="46.101.221.154"
 REP1="deb http://ftp.de.debian.org/debian squeeze main"
 REP2="" #deb http://http.kali.org/kali kali main non-free contrib"
 REP3="" #deb http://security.kali.org/kali-security kali/updates main contrib non-free"
@@ -12,7 +12,7 @@ REP4="" #deb-src http://http.kali.org/kali kali main non-free contrib"
 REP5="" #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free"
 
 echo ""
-echo "Allready Logged in to [46.101.188.218]? [y/n]"
+echo "Allready Logged in to ["$IP"]? [y/n]"
 read -s -n 1 log
 
 #=================================================================================================LOGGED IN?
@@ -24,9 +24,12 @@ read -s -n 1 log
 	done
 #----------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------> NO
-	if [ $log = "n" ]  
-	then ssh root@$IP
-	exit
+	if [ $log = "n" ]  	
+	then 
+		cp /media/INTENSO/MyFiles/ssh/rootssh /root/
+		sudo chmod 400 /root/rootssh
+		ssh -i /root/rootssh root@$IP
+		exit
 	else echo ""
 	fi
 #------------------------------------------------------------------------------------------------> ELSE
