@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 clear
 WHITE="\033[1;29m"

@@ -15,10 +15,11 @@ ENDCOLOR="\033[0m"
 
 FILE="/etc/apt/sources.list"
 REP1="deb http://ftp.de.debian.org/debian squeeze main"
-REP2="" #deb http://http.kali.org/kali kali main non-free contrib"
-REP3="" #deb http://security.kali.org/kali-security kali/updates main contrib non-free"
-REP4="" #deb-src http://http.kali.org/kali kali main non-free contrib"
-REP5="" #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free"
+REP2="deb http://us.archive.ubuntu.com/ubuntu vivid main universe"
+REP3="" #deb http://http.kali.org/kali kali main non-free contrib"
+REP4="" #deb http://security.kali.org/kali-security kali/updates main contrib non-free"
+REP5="" #deb-src http://http.kali.org/kali kali main non-free contrib"
+REP6="" #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free"
 echo -e $YELLOW"inserting missing keys..."$ENDCOLOR
 gpg --keyserver pgpkeys.mit.edu --recv-key  AED4B06F473041FA
 gpg -a --export AED4B06F473041FA | sudo apt-key add -
@@ -27,8 +28,6 @@ gpg -a --export 64481591B98321F9 | sudo apt-key add -
 gpg --keyserver pgpkeys.mit.edu --recv-key  ED444FF07D8D0BF6
 gpg -a --export ED444FF07D8D0BF6 | sudo apt-key add -
 echo ""
-
-
 
 
 echo -e $WHITE"fix 'sources.list' ? [y/n]"$ENDCOLOR
@@ -87,7 +86,7 @@ read -s -n 1 fix
 	#------------------------------------------------------------------------------------------------------------->> Frage1.File DOES EXIST
 		echo ""
 		echo -e $YELLOW"Creating "$FILE" ..."$ENDCOLOR	
-		echo $REP1 > $FILE
+		echo $REP1 >> $FILE
 		echo $REP2 >> $FILE
 		echo $REP3 >> $FILE
 		echo $REP4 >> $FILE
