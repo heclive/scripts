@@ -20,8 +20,9 @@ echo -e $WHITE"[3]"$ENDCOLOR" install libre office"
 echo -e $WHITE"[4]"$ENDCOLOR" install opera web browser"
 echo -e $WHITE"[5]"$ENDCOLOR" install gconf-editor (gnome system controll app)"
 echo -e $WHITE"[6]"$ENDCOLOR" install LaTeX"
-echo -e $WHITE"[7]"$ENDCOLOR" observer syslog file ..."
-echo -e $RED"[8]"$ENDCOLOR" Quit"
+echo -e $WHITE"[7]"$ENDCOLOR" install LAMP Web Server (Linux,Apache,MySQL,PHP)"
+echo -e $WHITE"[8]"$ENDCOLOR" observer syslog file ..."
+echo -e $RED"[9]"$ENDCOLOR" Quit"
 echo "Please choose from [1] - ["${#opt[@]}"]:"
 read i
 echo ""
@@ -34,10 +35,113 @@ opt=(	[1]="bash "$root"system/scripts/sources.sh"
 	[4]="sudo dpkg -i "$root"system/install/opera/*.deb"
 	[5]="sudo apt-get install gconf-editor"
 	[6]=latex
-	[7]="tail -f /var/log/syslog"
-	[8]="quit"
+	[7]=lamp	
+	[8]="tail -f /var/log/syslog"
+	[9]="quit"
 )
 #-----------------------------------------LATEX-------------------------------------------
+lamp () {
+localh=$(hostname -I)
+defpage=$(find /var/www/ -name "index.html" -or -name "index.php" -maxdepth 1)
+echo -e $YELLOW"Installing Apache2 Server ..."$ENDCOLOR
+sudo apt-get -y install apache2
+echo -e $YELLOW"Installing PHP ..."$ENDCOLOR
+sudo apt-get -y install php5 libapache2-mod-php5
+echo -e $YELLOW"Installing MYSQL ..."$ENDCOLOR
+sudo apt-get install -y mysql-server php5-mysql 
+echo -e $WHITE"LAMP Server successfully installed..."$ENDCOLOR
+echo -e $BLUE"localhost: "$localh
+echo -e "default web page: "$defpage$ENDCOLOR 
+
+#-----------------------------------------Installation of WORDPRESS 
+gut=0
+until [ $gut = "y" -o $gut = "n" ] 
+do 	
+		echo ""		
+		echo -e $WHITE"Install WORDPRESS [y/n]?"$ENDCOLOR
+		echo -e $RED"***************************************************"$ENDCOLOR
+		echo -e $RED"* WARNING:ALL DATA IN /VAR/WWW/ WILL BE DELETED!! *"$ENDCOLOR
+		echo -e $RED"***************************************************"$ENDCOLOR
+		read -s -n 1 -p "Please type in \"y\" or \"n\"." gut
+		echo ""
+		if [ $gut = "y" ]
+		then 
+			#-------------Emptying www folder and grabbing latest version of WORDPRESS -----------			
+			echo -e $YELLOW"DOWNLOADING & INSTALLING wordpress to /var/www ..."$ENDCOLOR			
+			cd /var/www
+			#sudo chown pi: .
+			#sudo rm * -R
+			#wget --no-check-certificate http://wordpress.org/latest.tar.gz
+			#-------------extract tarball, move contents to current directory and tidy up --------	
+			#tar xzf latest.tar.gz
+			#mv wordpress/* .
+			#rm -rf wordpress latest.tar.gz
+			echo -e $YELLOW"SETTING UP WordPress ..."$ENDCOLOR
+				wp=0
+				until [ $wp = "y" ] 
+				do 	
+				echo -e $BLUE"please provide username for your WordPress Login: "$ENDCOLOR
+				read usr
+				echo -e $WHITE"accept username: \""$usr"\" [y/n]?"$ENDCOLOR
+				read -s -n 1 wp								
+				if ! [ $wp = "n" -o $wp = "y" ]
+					then 
+						echo "Please enter only \"y\" or \"n\" to accept or decline."
+						echo -e $WHITE"accept username: \""$usr"\" [y/n]?"$ENDCOLOR
+						read -s -n 1 wp	
+					else	
+						echo =>$wp					
+				fi
+				done
+				wp=0
+				until [ $wp = "y" ] 
+				do 	
+				echo -e $BLUE"please provide your password: "$ENDCOLOR
+				read psw
+				echo -e $WHITE"accept password: \""$psw"\" [y/n]?"$ENDCOLOR
+				read -s -n 1 wp								
+				if ! [ $wp = "n" -o $wp = "y" ]
+					then 
+						echo "Please enter only \"y\" or \"n\" to accept or decline."
+						echo -e $WHITE"accept password: \""$psw"\" [y/n]?"$ENDCOLOR
+						read -s -n 1 wp	
+					else
+						echo =>$wp
+				fi
+				done	
+				wp=0
+				until [ $wp = "y" ] 
+				do 	
+				echo -e $BLUE"please provide your WordPress Database Name: "$ENDCOLOR
+				read dbname
+				echo -e $WHITE"accept Database Name: \""$dbname"\" [y/n]?"$ENDCOLOR
+				read -s -n 1 wp								
+				if ! [ $wp = "n" -o $wp = "y" ]
+					then 
+						echo "Please enter only \"y\" or \"n\" to accept or decline."
+						echo -e $WHITE"accept Database Name: \""$dbname"\" [y/n]?"$ENDCOLOR
+						read -s -n 1 wp	
+					else
+						echo =>$wp
+				fi
+				done	
+				unset wp
+			
+			echo -e $GREEN	
+			mysql -u$usr -p$psw -e "create database "$dbname";"$ENDCOLOR
+			echo "[Admin User]" > wordpress.cfg
+			echo "Database Name: "$dbname >> wordpress.cfg
+			echo "User Name:     "$usr >> wordpress.cfg
+			echo "Password:      "$psw >> wordpress.cfg
+			echo "Database Host: localhost" >> wordpress.cfg
+			echo "Table Prefix:  wp_" >> wordpress.cfg
+			echo -e $WHITE"WORDPRESS set up successfully. Setup file: \"wordpress.cfg\"."
+			echo -e "Please visit:"$BLUE" http://"$loalhc"/wp-admin"$WHITE" to login to your WordPress intstallation."
+		else
+			echo ""
+		fi
+done
+}
 latex () {
 ok=0
 until [ $ok = "y" -o $ok = "n" ] 
@@ -152,8 +256,9 @@ do
 		then 
 			read -p "Please enter root directory of \"INTENSO\":" root
 		else
-			echo ""
+			echo ""			
 		fi
+export PATH=$PATH":"$root
 done
 clear
 menu
