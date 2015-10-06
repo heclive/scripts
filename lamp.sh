@@ -258,7 +258,7 @@ do
 		else
 			echo ""			
 		fi
-export PATH=$PATH":"$root
+export PATH=$PATH":"${root}system/scripts/
 done
 clear
 menu

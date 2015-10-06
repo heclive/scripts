@@ -28,7 +28,7 @@ read -s -n 1 log
 	then 
 		cp /media/INTENSO/MyFiles/ssh/rootssh /root/
 		sudo chmod 400 /root/rootssh
-		ssh root@$IP
+		ssh -i /root/rootssh root@$IP
 		exit
 	else echo ""
 	fi

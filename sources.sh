@@ -15,7 +15,7 @@ ENDCOLOR="\033[0m"
 
 FILE="/etc/apt/sources.list"
 REP1="deb http://ftp.de.debian.org/debian squeeze main"
-REP2="deb http://us.archive.ubuntu.com/ubuntu vivid main universe"
+REP2="" #deb ftp.de.debian.org/debian-archive/debian hamm main "
 REP3="" #deb http://http.kali.org/kali kali main non-free contrib"
 REP4="" #deb http://security.kali.org/kali-security kali/updates main contrib non-free"
 REP5="" #deb-src http://http.kali.org/kali kali main non-free contrib"
@@ -27,6 +27,9 @@ gpg --keyserver pgpkeys.mit.edu --recv-key  64481591B98321F9
 gpg -a --export 64481591B98321F9 | sudo apt-key add -
 gpg --keyserver pgpkeys.mit.edu --recv-key  ED444FF07D8D0BF6
 gpg -a --export ED444FF07D8D0BF6 | sudo apt-key add -
+gpg --keyserver pgpkeys.mit.edu --recv-key  3B4FE6ACC0B21F32
+gpg -a --export 3B4FE6ACC0B21F32 | sudo apt-key add -
+
 echo ""
 
 
@@ -86,8 +89,8 @@ read -s -n 1 fix
 	#------------------------------------------------------------------------------------------------------------->> Frage1.File DOES EXIST
 		echo ""
 		echo -e $YELLOW"Creating "$FILE" ..."$ENDCOLOR	
-		echo $REP1 >> $FILE
-		echo $REP2 >> $FILE
+		echo $REP1 > $FILE
+		#echo $REP2 >> $FILE
 		echo $REP3 >> $FILE
 		echo $REP4 >> $FILE
 		echo $REP5 >> $FILE

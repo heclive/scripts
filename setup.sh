@@ -28,7 +28,7 @@ echo ""
 }
 
 #------------------------------------------ARRAY-----------------------------------------
-opt=(	[1]="bash "$root"system/scripts/sources.sh" 
+opt=(	[1]="sh "$root"system/scripts/sources.sh" 
 	[2]="sudo apt-get install gimp -y" 
 	[3]="sudo dpkg -i "$root"system/install/libre/DEBs/*.deb" 
 	[4]="sudo dpkg -i "$root"system/install/opera/*.deb"
