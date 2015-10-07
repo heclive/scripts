@@ -90,7 +90,7 @@ do
 						echo -e $WHITE"accept username: \""$usr"\" [y/n]?"$ENDCOLOR
 						read -s -n 1 wp	
 					else	
-						echo =>$wp					
+						echo "=>"$wp					
 				fi
 				done
 				wp=0
@@ -106,7 +106,7 @@ do
 						echo -e $WHITE"accept password: \""$psw"\" [y/n]?"$ENDCOLOR
 						read -s -n 1 wp	
 					else
-						echo =>$wp
+						echo "=>"$wp
 				fi
 				done	
 				wp=0
@@ -122,7 +122,7 @@ do
 						echo -e $WHITE"accept Database Name: \""$dbname"\" [y/n]?"$ENDCOLOR
 						read -s -n 1 wp	
 					else
-						echo =>$wp
+						echo "=>"$wp
 				fi
 				done	
 				unset wp
@@ -252,13 +252,13 @@ do
 		echo "Is the directory of media \"INTENSO\" correct? ("$root")"
 		read -s -n 1 -p "Please enter \"y\" or \"n\" to accept." ok
 		echo ""
-		if [ $yes = "n" ]
+		if [ $ok = "n" ]
 		then 
 			read -p "Please enter root directory of \"INTENSO\":" root
 		else
 			echo ""			
 		fi
-export PATH=$PATH":"${root}system/scripts/
+export PATH=$PATH":"${root}git/
 done
 clear
 menu
@@ -288,4 +288,4 @@ do
 	echo -e $GREEN ${opt[$i]}" EXECUTED."$ENDCOLOR
 	echo -e $GREEN "========================="$ENDCOLOR
 	menu
-done
+done					
