@@ -16,6 +16,7 @@ ssh -T git@github.com
 git config --global user.email "email@adress"
 git config --global user.name "branchusername"
 
+#insertion hier
 
 #seting up remote connection
 git remote add <name> <url>
