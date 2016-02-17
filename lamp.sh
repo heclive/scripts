@@ -20,51 +20,21 @@ echo -e $WHITE"[3]"$ENDCOLOR" install libre office"
 echo -e $WHITE"[4]"$ENDCOLOR" install opera web browser"
 echo -e $WHITE"[5]"$ENDCOLOR" install gconf-editor (gnome system controll app)"
 echo -e $WHITE"[6]"$ENDCOLOR" install LaTeX"
-<<<<<<< HEAD
-echo -e $WHITE"[7]"$ENDCOLOR" observer syslog file ..."
-echo -e $RED"[8]"$ENDCOLOR" Quit"
-=======
-<<<<<<< HEAD
-echo -e $WHITE"[7]"$ENDCOLOR" observer syslog file ..."
-echo -e $RED"[8]"$ENDCOLOR" Quit"
-=======
 echo -e $WHITE"[7]"$ENDCOLOR" install LAMP Web Server (Linux,Apache,MySQL,PHP)"
 echo -e $WHITE"[8]"$ENDCOLOR" observer syslog file ..."
 echo -e $RED"[9]"$ENDCOLOR" Quit"
->>>>>>> refs/remotes/origin/intenso
->>>>>>> 7fd1af24f1f52929b6cae3eb0d477c0994e3b63b
 echo "Please choose from [1] - ["${#opt[@]}"]:"
 read i
 echo ""
 }
 
 #------------------------------------------ARRAY-----------------------------------------
-<<<<<<< HEAD
-opt=(	[1]="sh "$root"system/scripts/sources.sh" 
-=======
-<<<<<<< HEAD
-opt=(	[1]="sh "$root"system/scripts/sources.sh" 
-=======
 opt=(	[1]="bash "$root"system/scripts/sources.sh" 
->>>>>>> refs/remotes/origin/intenso
->>>>>>> 7fd1af24f1f52929b6cae3eb0d477c0994e3b63b
 	[2]="sudo apt-get install gimp -y" 
 	[3]="sudo dpkg -i "$root"system/install/libre/DEBs/*.deb" 
 	[4]="sudo dpkg -i "$root"system/install/opera/*.deb"
 	[5]="sudo apt-get install gconf-editor"
 	[6]=latex
-<<<<<<< HEAD
-	[7]="tail -f /var/log/syslog"
-	[8]="quit"
-)
-#-----------------------------------------LATEX-------------------------------------------
-=======
-<<<<<<< HEAD
-	[7]="tail -f /var/log/syslog"
-	[8]="quit"
-)
-#-----------------------------------------LATEX-------------------------------------------
-=======
 	[7]=lamp	
 	[8]="tail -f /var/log/syslog"
 	[9]="quit"
@@ -120,7 +90,7 @@ do
 						echo -e $WHITE"accept username: \""$usr"\" [y/n]?"$ENDCOLOR
 						read -s -n 1 wp	
 					else	
-						echo "=>"$wp					
+						echo =>$wp					
 				fi
 				done
 				wp=0
@@ -136,7 +106,7 @@ do
 						echo -e $WHITE"accept password: \""$psw"\" [y/n]?"$ENDCOLOR
 						read -s -n 1 wp	
 					else
-						echo "=>"$wp
+						echo =>$wp
 				fi
 				done	
 				wp=0
@@ -152,7 +122,7 @@ do
 						echo -e $WHITE"accept Database Name: \""$dbname"\" [y/n]?"$ENDCOLOR
 						read -s -n 1 wp	
 					else
-						echo "=>"$wp
+						echo =>$wp
 				fi
 				done	
 				unset wp
@@ -172,8 +142,6 @@ do
 		fi
 done
 }
->>>>>>> refs/remotes/origin/intenso
->>>>>>> 7fd1af24f1f52929b6cae3eb0d477c0994e3b63b
 latex () {
 ok=0
 until [ $ok = "y" -o $ok = "n" ] 
@@ -284,29 +252,13 @@ do
 		echo "Is the directory of media \"INTENSO\" correct? ("$root")"
 		read -s -n 1 -p "Please enter \"y\" or \"n\" to accept." ok
 		echo ""
-<<<<<<< HEAD
-		if [ $yes = "n" ]
-=======
-<<<<<<< HEAD
 		if [ $yes = "n" ]
 		then 
 			read -p "Please enter root directory of \"INTENSO\":" root
 		else
-			echo ""
+			echo ""			
 		fi
-=======
-		if [ $ok = "n" ]
->>>>>>> 7fd1af24f1f52929b6cae3eb0d477c0994e3b63b
-		then 
-			read -p "Please enter root directory of \"INTENSO\":" root
-		else
-			echo ""
-		fi
-<<<<<<< HEAD
-=======
-export PATH=$PATH":"${root}git/
->>>>>>> refs/remotes/origin/intenso
->>>>>>> 7fd1af24f1f52929b6cae3eb0d477c0994e3b63b
+export PATH=$PATH":"${root}system/scripts/
 done
 clear
 menu
@@ -336,12 +288,4 @@ do
 	echo -e $GREEN ${opt[$i]}" EXECUTED."$ENDCOLOR
 	echo -e $GREEN "========================="$ENDCOLOR
 	menu
-<<<<<<< HEAD
 done
-=======
-<<<<<<< HEAD
-done
-=======
-done					
->>>>>>> refs/remotes/origin/intenso
->>>>>>> 7fd1af24f1f52929b6cae3eb0d477c0994e3b63b
