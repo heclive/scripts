@@ -1,0 +1,81 @@
+<!--
+ Linphone Web - Web plugin of Linphone an audio/video SIP phone
+ Copyright (c) 2013 Belledonne Communications
+ All rights reserved.
+ 
+
+ Authors:
+ - Yann Diorcet <diorcet.yann@gmail.com>
+ 
+-->
+<div class="chat">
+	<!-- @if env='debug' -->
+	<script id="linphone.ui.view.chat.list.entry.received" type="text/x-handlebars-template">
+		<div class="entryReceive">
+			<img src="{{context.img}}" alt="" class="contactImg">
+			<div class="infos">
+				<div class="date">{{context.date}}</div>
+				<div class="contactName">{{context.name}}</div>
+				<div class="message">{{context.message}}</div>
+				<a href="#" class="download"><div class="button"><div class="image imageUpload"></div><div class="text">Télécharger</div></div></a>
+			</div>
+			<hr>
+		</div>
+	</script>
+	<!-- @endif -->
+	<!-- @if env='debug' -->
+	<script id="linphone.ui.view.chat.list.entry.sent" type="text/x-handlebars-template">
+		<div class="entrySend">
+			<img src="{{context.img}}" alt="" class="contactImg">
+			<div class="infos">
+				<div class="date">{{context.date}}</div>
+				<div class="contactName">{{context.name}}</div>
+				<div class="stateMessage"><div class="button buttonAction"><div class="image {{context.state}}"></div></div></div>
+				<div class="message">{{context.message}}</div>		
+			</div>
+			<hr>
+		</div>
+	</script>
+	<!-- @endif -->
+	<div class="list scroll-pane">
+	</div>
+    <div class="status" data-i18n="content.view.chat.is_composing">
+    </div>
+    <!-- @if env='debug' -->
+    <script id="linphone.ui.view.chat.actions.fileUpload" type="text/x-handlebars-template">
+	    <div class="fileUploadPreview"><div class="fileUploadPreviewMiddle"></div></div>
+		<div class="fileUploadName">{{context.name}}</p></div>
+		<div class="fileUploadSize">{{context.size}}
+		    <div class="progress">
+		    <div class="progress-bar"></div></div>
+		</div>
+		<div class="fileUploadActions">
+		    <div class="button floatLeft sendUploadFile"><div class="image imageUpload"></div><div class="text" data-i18n="content.view.chat.send"></div></div>
+		    <div class="button buttonAction cancelUploadFile"><div class="image imageDelete"></div></div>
+		</div> 
+	</script>
+	<!-- @endif -->
+    <!-- @if env='debug' -->
+	<script id="linphone.ui.view.chat.actions" type="text/x-handlebars-template">
+		<div class="messageToSend">
+			<textarea class="textArea"> </textarea>
+		</div>
+		<div class="fileUpload">	 
+		</div>
+		<div class="button sendChat">
+			<div class="image imageSend"></div>
+			<div class="text" data-i18n="content.view.chat.send"></div>
+		</div><!--
+		Avoid issue with inline block in dev mode
+		--><div class="button buttonAction sendImage"><!--
+		Avoid issue with inline block in dev mode
+		--><div class="image imageUpload"></div><!--
+		Avoid issue with inline block in dev mode
+		--><div class="inputFile text" data-i18n="content.view.chat.send_file"><input class="fileName" type="file" /></div>
+		</div>
+	</script>
+	<!-- @endif -->
+	<div class="actions">
+	</div>
+</div>
+

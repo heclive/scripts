@@ -1,0 +1,21 @@
+[H[2J
+Is the ROOT directory correct? (/media/INTENSO/)
+
+
+
+
+[1;29mMENU:[0m
+[1;29m[1][0m correct sources.list
+[1;29m[2][0m install gimp
+[1;29m[3][0m install libre office
+[1;29m[4][0m install opera web browser
+[1;29m[5][0m install gconf-editor (gnome system controll app)
+[1;29m[6][0m install LaTeX
+[1;29m[7][0m install LAMP Web Server (Linux,Apache,MySQL,PHP)
+[1;29m[8][0m observer syslog file ...
+[0;31m[9][0m Quit
+Please choose from [1] - [9]:
+
+please enter a valid number (1 - 9):
+please enter a valid number (1 - 9):
+please enter a valid number (1 - 9):

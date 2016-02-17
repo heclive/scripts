@@ -1,0 +1,199 @@
+/*!
+ Linphone Web - Web plugin of Linphone an audio/video SIP phone
+ Copyright (c) 2013 Belledonne Communications
+ All rights reserved.
+ 
+
+ Authors:
+ - Yann Diorcet <diorcet.yann@gmail.com>
+ 
+ */
+
+.linphoneweb > .content .view > .chat {
+	position: relative;
+	height: 550px
+}
+.linphoneweb > .content .view > .chat .entryReceive, .linphoneweb > .content .view > .chat .entrySend {
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid #e4edf2;
+	clear: both
+}
+.linphoneweb > .content .view > .chat .entryReceive .contactImg, .linphoneweb > .content .view > .chat .entrySend .contactImg {
+	border: 5px solid #e4edf2;
+	width: 50px;
+	height: 50px;
+}
+.linphoneweb > .content .view > .chat .entryReceive .contactImg {
+	float: left;
+	margin-right: 10px;
+}
+.linphoneweb > .content .view > .chat .entrySend .contactImg {
+	float: right;
+	margin-left: 10px
+}
+.linphoneweb > .content .view > .chat .entryReceive .infos, .linphoneweb > .content .view > .chat .entrySend .infos {
+	float: left;
+	width: 600px;
+	margin-top: 10px
+}
+.linphoneweb > .content .view > .chat .infos .contactName {
+	color: #5d8398;
+}
+.linphoneweb > .content .view > .chat .infos .date {
+	color: #5d8398;
+	float: right;
+}
+.linphoneweb > .content .view > .chat .infos .message {
+	font-size: 11pt;
+	line-height: 14pt;
+	margin-top: 10px;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+.linphoneweb > .content .view > .chat .infos .message_file {
+    color:#5d8398;
+    margin-bottom:15px
+}
+
+.linphoneweb > .content .view > .chat .status {
+    padding-left: 10px;
+    margin-top: 10px;
+    color: #5d8398;
+    font-style: italic;
+}    
+.linphoneweb > .content .view > .chat .actions {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	padding-left: 10px;
+}
+
+.linphoneweb > .content .view > .chat .scroll-pane {
+	width: 710px;
+	height: 360px;
+}
+.linphoneweb > .content .view > .chat .scroll-content {
+	width: 700px;
+	height: 70px;
+	border: 1px solid #adbbc2;
+}
+
+.linphoneweb > .content .view > .chat .messageToSend textarea {
+	border: 1px solid #adbbc2;
+	height: 80px;
+	padding: 5px;
+	margin-bottom: 20px;
+	font-size: 11pt;
+	line-height: 14pt;
+    font-family:'allerregular', arial, verdana, sans-serif;
+    width:670px;
+    text-align:left;
+    resize:none;
+}
+.linphoneweb > .content .view > .chat .messageToSend textarea:focus {
+	border:1px solid #adbbc2; 
+	outline: none;
+}
+
+.linphoneweb > .content .view > .chat .scroll-pane .stateMessage .image {
+	width:26px; 
+	height:26px
+}
+
+.linphoneweb > .content .view > .chat .scroll-pane .entrySend .sentImage {
+	width: 200px;
+	height : auto;
+}
+
+.linphoneweb > .content .view > .chat .scroll-pane .stateMessage {
+	float:right; 
+	margin-top:11px
+}
+
+.linphoneweb > .content .view > .chat .buttonAction{position:relative}
+.linphoneweb > .content .view > .chat .scroll-pane .buttonAction:hover {
+	cursor:normal; 
+	background: #5d8398
+}
+
+.linphoneweb > .content .view > .chat .scroll-pane .resendMessage:hover:before {
+    content: 'RENVOYER';
+    background: #d97459;
+    line-height: 26px;  
+    padding: 0 5px;
+    float: left;
+    margin-left: 26px;
+}
+
+.linphoneweb > .content .view > .chat .actions .button .inputFile input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	opacity: 0;
+	-ms-filter: 'alpha(opacity=0)';
+	font-size: 30px;
+	cursor: pointer;
+	width:100%;
+}
+
+.linphoneweb > .content .view > .chat .fileUpload{
+	height:80px;
+	width:670px;
+	margin-bottom: 20px;
+	border: 1px solid #adbbc2;
+	padding:10px
+}
+
+.linphoneweb > .content .view > .chat .fileUpload .fileUploadPreview{
+	float:left;
+	margin-right:20px;
+}
+
+.linphoneweb > .content .view > .chat .fileUpload .fileUploadPreviewMiddle{
+	width:80px;
+	height:80px;
+	display:table-cell;
+	vertical-align:middle;    
+}
+
+.linphoneweb > .content .view > .chat .fileUpload .fileUploadPreviewMiddle img{
+	width:80px;
+	height:80px;    
+}
+
+.linphoneweb > .content .view > .chat .fileUpload .fileUploadName{
+	float:left;
+	margin-right:20px;
+	width:180px; 
+	padding-top:20px;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	padding-bottom: 10px;
+}
+
+.linphoneweb > .content .view > .chat .fileUpload .fileUploadSize{
+	float:left;
+	margin-right:20px;
+	width:180px;
+	padding-top:20px
+}
+.linphoneweb > .content .view > .chat .fileUpload .progress{
+	height: 20px;
+	margin-top: 10px;
+	overflow: hidden;
+	background-color: #f5f5f5;
+	border:1px solid #adbbc2;
+}
+
+.linphoneweb > .content .view > .chat .fileUpload .progress-bar{
+	background-color: #adbbc2;
+	height:20px;
+}
+
+.linphoneweb > .content .view > .chat .fileUpload .fileUploadActions{
+	padding-top:30px    
+}
+
